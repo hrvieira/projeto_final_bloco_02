@@ -16,7 +16,8 @@ export class ProdutosService {
     async findAll(): Promise<Produtos[]> {
         return await this.produtosRepository.find({
             relations:{
-                categorias: true
+                categorias: true,
+                usuario: true
             }
         });
     }
@@ -41,7 +42,8 @@ export class ProdutosService {
             where: {
                 titulo: ILike(`%${titulo}%`)
             },relations:{
-                categorias: true
+                categorias: true,
+                usuario: true
             }
         })
     }
@@ -55,7 +57,8 @@ export class ProdutosService {
                 titulo: 'ASC'
             },
             relations: {
-                categorias: true
+                categorias: true,
+                usuario: true
             }
         })
     }
@@ -69,7 +72,8 @@ export class ProdutosService {
                 titulo: 'DESC'
             },
             relations: {
-                categorias: true
+                categorias: true,
+                usuario: true
             }
         })
     }

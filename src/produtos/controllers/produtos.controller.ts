@@ -1,8 +1,10 @@
 import { ProdutosService } from "../services/produtos.service";
 import { Produtos } from '../entities/produtos.entity';
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseFloatPipe, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseFloatPipe, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
+import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 
 
+@UseGuards(JwtAuthGuard)
 @Controller("/produtos")
 export class ProdutosController{
     
