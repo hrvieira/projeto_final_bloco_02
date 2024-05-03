@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Categorias } from './categorias/entities/categorias.entity';
 import { CategoriasModule } from './categorias/categorias.module';
+import { ProdutosModule } from './produtos/produtos.module';
+import { Produtos } from './produtos/entities/produtos.entity';
 
 @Module({
   imports: [
@@ -14,10 +14,11 @@ import { CategoriasModule } from './categorias/categorias.module';
       username: 'root',
       password: 'root',
       database: 'db_farmacia_go',
-      entities: [Categorias],
+      entities: [Categorias, Produtos],
       synchronize: true,
     }),
-    CategoriasModule
+    CategoriasModule,
+    ProdutosModule
   ],
   controllers: [],
   providers: [],
